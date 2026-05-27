@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L'Équipe — Coffre n°1 · Bannière volée</title>
+  <meta name="description" content="Rallye des Familles 2026 — Premier morceau de la Bannière des Champions du Massachusetts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/banniere-fragment.png">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f6f0df;
+      --paper-dark: #ece3c9;
+      --ink: #111111;
+      --muted: #5b5850;
+      --line: #d7ceb9;
+      --red: #d71920;
+      --gold: #c49a40;
+      --navy: #10233f;
+      --green: #0f5132;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #b9b3a6;
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      min-height: 100%;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(17,17,17,0.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: 100% 6mm;
+      padding: 24px 16px 64px;
+    }
+
+    .sheet {
+      max-width: 780px;
+      margin: 0 auto;
+      background:
+        linear-gradient(rgba(17,17,17,0.03) 1px, transparent 1px),
+        var(--paper);
+      background-size: 100% 6mm;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.18);
+      padding: 22px 26px 30px;
+    }
+
+    .folio {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+      text-transform: uppercase;
+    }
+    .folio-number, .folio-section {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .folio-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .kicker {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      background: var(--paper-dark);
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+    }
+
+    h1.headline {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 0.95;
+      margin: 14px 0 6px;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    h1.headline em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .subhead {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 17px;
+      line-height: 1.35;
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-weight: 600;
+    }
+
+    .fragment {
+      position: relative;
+      margin: 18px -6px 22px;
+      padding: 0;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
+    }
+    .fragment img {
+      display: block;
+      width: 100%;
+      height: auto;
+      /* Torn paper effect: irregular polygon clip */
+      clip-path: polygon(
+        0% 8%, 4% 4%, 9% 7%, 14% 3%, 20% 6%, 26% 2%, 33% 5%, 40% 1%,
+        48% 4%, 55% 0%, 62% 3%, 70% 1%, 78% 5%, 86% 2%, 93% 6%, 100% 4%,
+        99% 14%, 100% 28%, 97% 42%, 100% 58%, 98% 72%, 100% 86%, 97% 96%,
+        91% 99%, 82% 95%, 73% 100%, 64% 96%, 54% 100%, 45% 96%, 35% 100%,
+        25% 96%, 16% 100%, 8% 95%, 2% 99%, 0% 88%, 3% 72%, 0% 56%, 2% 40%, 0% 24%
+      );
+    }
+    .fragment::after {
+      content: "FRAGMENT 1 / 6";
+      position: absolute;
+      bottom: 14px;
+      right: 18px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      color: var(--paper);
+      background: var(--red);
+      padding: 5px 10px;
+      border: 2px solid var(--paper);
+    }
+
+    .lede {
+      column-count: 2;
+      column-gap: 22px;
+      column-rule: 1px solid var(--line);
+      font-size: 16px;
+      line-height: 1.55;
+      text-align: justify;
+      hyphens: auto;
+    }
+    .lede p { margin: 0 0 10px; }
+    .lede p:first-child::first-letter {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 56px;
+      float: left;
+      line-height: 0.85;
+      margin: 4px 8px 0 0;
+      color: var(--red);
+    }
+
+    .callout {
+      margin: 24px 0 18px;
+      padding: 18px 20px;
+      border: 2px solid var(--ink);
+      background: var(--paper-dark);
+      position: relative;
+    }
+    .callout .kicker {
+      position: absolute;
+      top: -12px;
+      left: 14px;
+      background: var(--paper);
+      color: var(--red);
+      border-color: var(--ink);
+    }
+    .callout p { margin: 4px 0; font-size: 16px; line-height: 1.45; }
+
+    .phone-card {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: var(--paper);
+      border: 1px dashed var(--ink);
+    }
+    .phone-card .who {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .phone-card .who small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 700;
+    }
+    .phone-card .num {
+      margin-left: auto;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: 1px;
+    }
+    .phone-card .num:hover { color: var(--red); }
+
+    .phone-card--dark {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--gold);
+      margin: 14px 0;
+    }
+    .phone-card--dark .who { color: var(--paper); }
+    .phone-card--dark .who small { color: var(--gold); }
+    .phone-card--dark .num {
+      color: var(--paper);
+      border-bottom-color: var(--gold);
+    }
+    .phone-card--dark .num:hover { color: var(--gold); }
+
+    /* Code entry */
+    .safe {
+      margin-top: 28px;
+      padding: 22px 18px 18px;
+      border: 3px double var(--ink);
+      background: var(--paper-dark);
+    }
+    .safe h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 22px;
+      margin: 0 0 4px;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+    }
+    .safe .hint {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 16px;
+      font-style: italic;
+    }
+
+    .code-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+    .code-cell {
+      width: 56px;
+      height: 70px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 700;
+      font-size: 26px;
+      text-align: center;
+      color: var(--ink);
+      padding: 0;
+      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.04);
+    }
+    .code-cell:focus {
+      outline: none;
+      border-color: var(--red);
+      background: #fff;
+    }
+    .code-dash {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--red);
+      user-select: none;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .btn {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 17px;
+      letter-spacing: 0.08em;
+      padding: 12px 22px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--red); border-color: var(--red); }
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+    }
+    .btn.ghost:hover { background: var(--ink); color: var(--paper); }
+
+    .feedback {
+      margin-top: 14px;
+      min-height: 24px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 16px;
+      text-align: center;
+    }
+    .feedback.error { color: var(--red); }
+    .feedback.ok { color: var(--green); }
+
+    .unlocked {
+      display: none;
+      margin-top: 18px;
+      padding: 22px 20px;
+      background: var(--navy);
+      color: var(--paper);
+      border: 3px solid var(--gold);
+    }
+    .unlocked.show { display: block; }
+    .unlocked h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 24px;
+      margin: 0 0 8px;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .unlocked p { margin: 6px 0; font-size: 16px; line-height: 1.5; }
+
+    .signoff {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    @media (max-width: 560px) {
+      .sheet { padding: 16px 14px 22px; }
+      .lede { column-count: 1; }
+      .code-cell { width: 38px; height: 56px; font-size: 20px; }
+      .code-dash { font-size: 22px; }
+      .phone-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .phone-card .num { margin-left: 0; }
+      .fragment::after { font-size: 11px; padding: 4px 7px; bottom: 8px; right: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="folio">
+      <div class="folio-number">N° 01</div>
+      <div class="folio-title">L'Équipe</div>
+      <div class="folio-section">Coffre · Édition Sport 2026</div>
+    </div>
+
+    <span class="kicker">Pièce à conviction n°1</span>
+    <h1 class="headline">Le premier <em>morceau</em><br>est dans le coffre.</h1>
+    <p class="subhead">Dans sa fuite précipitée, la bande à Doudou « Cross Bitume » aurait abandonné ici un premier morceau de la Bannière des Champions — soigneusement caché dans un coffre-fort.</p>
+
+    <figure class="fragment">
+      <img src="assets/banniere-fragment.png" alt="Premier fragment de la Bannière des Champions du Massachusetts">
+    </figure>
+
+    <div class="lede">
+      <p>Un indice devrait vous mettre sur la piste : la composition du match <strong>Spurs vs Celtics</strong> de dimanche soir prochain. Leurs numéros parlent.</p>
+      <p>À vous de trouver la combinaison et d'ouvrir <strong>Le Coffre</strong>. Indiquez ensuite le résultat dans la fenêtre de réponse du rallye — et gardez-le précieusement avec vous.</p>
+    </div>
+
+    <section class="callout">
+      <span class="kicker">L'indice · composition du match</span>
+      <p>Reconstituez les <strong>dix numéros</strong> des joueurs alignés dimanche soir (Spurs puis Celtics), dans l'ordre. Tapez la combinaison ci-dessous, séparée par les tirets, pour ouvrir le coffre.</p>
+    </section>
+
+    <section class="safe" aria-label="Saisie du code">
+      <h2>Coffre · saisir la combinaison à 10 nombres</h2>
+      <p class="hint">Format : 00-00-00-0-00-00-00-0-0-00 — les numéros des maillots, dans l'ordre.</p>
+
+      <form id="codeForm" class="code-row" autocomplete="off" novalidate>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 1">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 2">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 3">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="1" data-len="1" aria-label="chiffre 4">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 5">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 6">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 7">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="1" data-len="1" aria-label="chiffre 8">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="1" data-len="1" aria-label="chiffre 9">
+        <span class="code-dash">–</span>
+        <input class="code-cell" inputmode="numeric" maxlength="2" data-len="2" aria-label="chiffres 10">
+      </form>
+
+      <div class="actions">
+        <button class="btn" id="validate" type="button">Ouvrir le coffre</button>
+        <button class="btn ghost" id="reset" type="button">Effacer</button>
+      </div>
+
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+
+      <div class="unlocked" id="unlocked" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="signoff">
+      <span>Rallye des Familles · Édition 2026</span>
+      <span>Coffre 01 / 06</span>
+    </div>
+  </main>
+
+  <!-- Contenu déverrouillé : CHIFFRÉ (AES-GCM). Sans la bonne combinaison, illisible même via "inspecter". -->
+  <script id="vault-data" type="application/json">
+    {
+      "iter": 250000,
+      "salt": "AZ6NPTP6nvjz0x19Xacrfg==",
+      "iv": "sktBnK6xahbU25Aa",
+      "ct": "hr8svf1aN3H22GgUfbtVjZSJKMr7ffqLnePlIHzdcZeOMKGtfsgaK0+Oq186soy1QNT7T0Acgi6+ZkzaAvJOXTTdXolqfHPPxrgk8E57sl0XnOrC/FNKO2oy+URaNYga+3vJ4ZdbixSBFYPJRYkLyTJmRXyCOGBeN+MACKoYpy1omofke/+yyvgPfoeR43wYbDU7wsZpA5YaBtk/YP8/NIu0gX0VpXJV5xEhJ//s+OUtLk9QaQIMdkwi3MNDlvsBm8U2mADntXM3AHDJT99EQuZBGO8l9qlXyix9z+MBXrL1NbDSO0o89m+HGeWSz0zzS5r8CAfjWUxe0LKqQwSt6pMzk7ULu0OYAZ+6zZiR6Cdu+isv2duSzFXln2Qv3gBNGUuR9qazdNAXcNEXs7WWWlAFq+QgliAVcTsGo9LgZGKp6M0G5pHqjZ+nDNEmfs8ZXz6T/H/sb11hTaPW7jDm9INAjfbVUE4TkYWGMa8wLxDtFfiza9F2G/E0EVWktUaTRN8mDAF9fLz2gRaGxDLhg8Iu09pQo0ZYVkJv80QZ+d1xcsi5On6UvGRvzTPd9ADxZrZS2RLp2qk7tgHQ0MuPmg+b3CQlH3XNPh5U3Txed5hC5UP3+q+M2W9KKvGsR11wcih5iMxqCz7SoXcI3qcCEXt0eowST7dn3/vHGKpN9T0MpuKf15ie6MtE3yZYYATYMDTrZygU9hBaGolXggu4X5w/pT+UswEELPvhgns3j3+7jUEUk54c9dLC661LXFsrU6oNGwLYpx/gJFt/2DFVdjUfLqVwZ12svPb6akgBqZAQh1T2aWE+Lj/F06tCKNvMZ4nFiO6qU1nJVcgkggU7ltM3sFVA2fSwW/UPYgESze0axuEkxlwNxG6UAJC83bSkcsepyCN8mzVKKbCLxhlxnGbOwbROOaExtVOeNFwlr0xfkP9+8NUFJNhJbGZykBtAEQJswaGJjb7Fk4/kIQRn1uHt/5tFG732gNheXFs2Z7qB0QPGmiYHjykpA3xAIUZ2IzaHt0s4/7Y6MC/PlFUT61Iel9uFxxFjfY9KZSspBNG8YnTlumPyRjr3nvlfNHe8Q587VU88KGSxwBvMP0Y8Dj3vN2yGlFiwrX2Y/cC7TyaJ9i+PIZ52cMc4ojFQVPGJbCte8ls66QVnpEATvjBaCsbuFkArp2GfNjUeRVk+mGq2oTEi/D/wWfNd0Nf2z5jgADtWf3owJ5bc9L29EmwmuAuwgygiS1O2NzcPXrIHzSUJyTjeJroqnJZ8EI6GCluTW7F8VEBZdfosTC3R9+LQ1ppNtnBzpa7bhnrNaBMOyyBvhD4ccJzpEezfci5lhnNC1NEsZnhA9YmmKyYHTMVrLRstFdm8kWDB9JHO7YxoXyjQJ9ny2YovFY94Vi1YCeI2LyAh1lQ9qZ5Tvpf3p5CQTN68eXtIsFWa/9n6R5TCibIQh2IRKaZ5lou+X/XV1ccQ6gJL+5nDQyFW+gYblJRDfildrfGX6eKIBva7QFYbo54PyUO3xRhKeGXB8L2q0LYaPvSbo0kJEcZ+p4cAWEVDz5m/HgxlwBU0x+ULJaOvxV/g1uyXhWK1ajmpJFS6vg=="
+    }
+  </script>
+  <script>
+    (function () {
+      var cells = Array.prototype.slice.call(document.querySelectorAll(".code-cell"));
+      var feedback = document.getElementById("feedback");
+      var unlocked = document.getElementById("unlocked");
+      var vault = JSON.parse(document.getElementById("vault-data").textContent);
+      var opened = false;
+
+      function b64ToBytes(b64) {
+        var bin = atob(b64);
+        var u8 = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+        return u8;
+      }
+
+      async function tryOpen(pass) {
+        var enc = new TextEncoder();
+        var baseKey = await crypto.subtle.importKey("raw", enc.encode(pass), "PBKDF2", false, ["deriveKey"]);
+        var key = await crypto.subtle.deriveKey(
+          { name: "PBKDF2", salt: b64ToBytes(vault.salt), iterations: vault.iter, hash: "SHA-256" },
+          baseKey, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
+        );
+        var plain = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: b64ToBytes(vault.iv) }, key, b64ToBytes(vault.ct)
+        );
+        return new TextDecoder().decode(plain);
+      }
+
+      function currentCode() {
+        return cells.map(function (c) { return c.value.trim(); }).join("-");
+      }
+
+      function onlyDigits(v) { return v.replace(/[^0-9]/g, ""); }
+
+      cells.forEach(function (cell, i) {
+        cell.addEventListener("input", function (e) {
+          cell.value = onlyDigits(cell.value).slice(0, parseInt(cell.dataset.len, 10));
+          if (cell.value.length >= parseInt(cell.dataset.len, 10) && i < cells.length - 1) {
+            cells[i + 1].focus();
+            cells[i + 1].select();
+          }
+          feedback.textContent = "";
+          feedback.className = "feedback";
+        });
+        cell.addEventListener("keydown", function (e) {
+          if (e.key === "Backspace" && !cell.value && i > 0) {
+            cells[i - 1].focus();
+          } else if (e.key === "ArrowLeft" && i > 0) {
+            cells[i - 1].focus();
+          } else if (e.key === "ArrowRight" && i < cells.length - 1) {
+            cells[i + 1].focus();
+          } else if (e.key === "Enter") {
+            e.preventDefault();
+            validate();
+          }
+        });
+        cell.addEventListener("paste", function (e) {
+          var text = (e.clipboardData || window.clipboardData).getData("text");
+          if (!text) return;
+          var digits = onlyDigits(text);
+          if (digits.length >= 14) {
+            e.preventDefault();
+            var lens = cells.map(function (c) { return parseInt(c.dataset.len, 10); });
+            var idx = 0;
+            cells.forEach(function (c, k) {
+              c.value = digits.substr(idx, lens[k]);
+              idx += lens[k];
+            });
+            cells[cells.length - 1].focus();
+          }
+        });
+      });
+
+      async function validate() {
+        if (opened) return;
+        var code = currentCode();
+        if (cells.some(function (c) { return !c.value; })) {
+          feedback.textContent = "Combinaison incomplète — il manque des chiffres.";
+          feedback.className = "feedback error";
+          return;
+        }
+        feedback.textContent = "Déverrouillage…";
+        feedback.className = "feedback";
+        try {
+          var html = await tryOpen(code);
+          unlocked.innerHTML = html;
+          unlocked.classList.add("show");
+          feedback.textContent = "Coffre ouvert.";
+          feedback.className = "feedback ok";
+          opened = true;
+          cells.forEach(function (c) { c.disabled = true; });
+          unlocked.scrollIntoView({ behavior: "smooth", block: "start" });
+        } catch (e) {
+          feedback.textContent = "Combinaison erronée — vérifiez les numéros.";
+          feedback.className = "feedback error";
+          unlocked.classList.remove("show");
+        }
+      }
+
+      document.getElementById("validate").addEventListener("click", validate);
+      document.getElementById("reset").addEventListener("click", function () {
+        cells.forEach(function (c) { c.value = ""; c.disabled = false; });
+        feedback.textContent = "";
+        feedback.className = "feedback";
+        unlocked.classList.remove("show");
+        unlocked.innerHTML = "";
+        opened = false;
+        cells[0].focus();
+      });
+    })();
+  </script>
+</body>
+</html>
