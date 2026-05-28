@@ -2,18 +2,6 @@
 
 Page statique pour le Rallye des Familles 2026. Style journal *L'Équipe* cohérent avec le livret.
 
-## Contenu
-- `index.html` — page complète, auto-contenue (HTML/CSS/JS inline, fonts Google)
-- `assets/banniere-fragment.png` — premier fragment de la bannière
-
-## Scénario
-- **Page initiale** : morceau de bannière caché dans le coffre, indice = compo Spurs vs Celtics.
-- **Après ouverture** (bonne combinaison) : révèle le **numéro mystère** `+1 (470) 441-7635` (lien `sms:`) + mission (envoyer le nom du sport par SMS → coordonnées GPS).
-
-## À personnaliser avant publication
-1. Optionnel : changer `FRAGMENT 1 / 6` (CSS `.fragment::after content`).
-2. Le numéro `+1 (470) 441-7635` est déjà câblé (lien `sms:+14704417635`).
-
 ## Déploiement GitHub Pages (recommandé — gratuit, 2 min)
 ```bash
 cd coffre-banniere
