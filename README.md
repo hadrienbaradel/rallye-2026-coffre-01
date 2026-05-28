@@ -6,10 +6,6 @@ Page statique pour le Rallye des Familles 2026. Style journal *L'Équipe* cohér
 - `index.html` — page complète, auto-contenue (HTML/CSS/JS inline, fonts Google)
 - `assets/banniere-fragment.png` — premier fragment de la bannière
 
-## Combinaison attendue
-`20-33-23-7-13-50-22-5-2-44` (en dur dans le JS, variable `EXPECTED`)
-Indice in-game : numéros des maillots de la composition Spurs vs Celtics.
-
 ## Scénario
 - **Page initiale** : morceau de bannière caché dans le coffre, indice = compo Spurs vs Celtics.
 - **Après ouverture** (bonne combinaison) : révèle le **numéro mystère** `+1 (470) 441-7635` (lien `sms:`) + mission (envoyer le nom du sport par SMS → coordonnées GPS).
